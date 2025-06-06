@@ -38,9 +38,10 @@ export const SearchInput: React.FC<SearchInputProps> = ({
         size="lg"
         className="w-full"
         classNames={{
-          input: "text-gray-700 placeholder:text-gray-400 text-sm sm:text-base",
+          input:
+            "text-gray-700 dark:text-gray-300 placeholder:text-gray-400 text-sm sm:text-base",
           inputWrapper:
-            "glass-card border-2 border-gray-200 hover:border-blue-300 focus-within:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-md",
+            "glass-card border-2 border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 focus-within:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-md",
         }}
         data-testid="search-input"
       />

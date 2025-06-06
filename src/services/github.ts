@@ -69,6 +69,10 @@ export class GitHubService {
   async getUser(username: string): Promise<GitHubUser> {
     return this.request<GitHubUser>(`/users/${username}`);
   }
+
+  async getRepository(owner: string, repo: string): Promise<GitHubRepository> {
+    return apiRequest<GitHubRepository>(`/repos/${owner}/${repo}`);
+  }
 }
 
 export const githubService = new GitHubService();

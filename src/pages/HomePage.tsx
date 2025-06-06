@@ -18,7 +18,7 @@ export const HomePage: React.FC = () => {
         className="text-center space-y-4 sm:space-y-8"
       >
         <div className="space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-200/30 text-blue-700 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-200/30 text-blue-700 dark:text-blue-300 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
             <Sparkles size={14} className="sm:w-4 sm:h-4" />
             <span className="hidden sm:inline">
               Discover Amazing Assesment Project
@@ -28,7 +28,7 @@ export const HomePage: React.FC = () => {
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold gradient-text text-shadow leading-tight px-2">
             GitHub User Search
           </h1>
-          <p className="text-sm sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+          <p className="text-sm sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed px-4">
             <span className="hidden sm:inline">
               Search for talented developers and explore their incredible
               repositories. Discover trending projects, innovative code, and
@@ -42,7 +42,7 @@ export const HomePage: React.FC = () => {
         <div className="max-w-2xl mx-auto">
           <Card className="glass-card hover-lift p-3 sm:p-6">
             <CardBody className="gap-3 sm:gap-4">
-              <div className="flex items-center gap-2 sm:gap-3 text-gray-700 mb-1 sm:mb-2">
+              <div className="flex items-center gap-2 sm:gap-3 text-gray-700 dark:text-gray-300 mb-1 sm:mb-2">
                 <Search size={16} className="sm:w-5 sm:h-5 text-blue-500" />
                 <span className="font-medium text-sm sm:text-base">
                   Github User Search
@@ -81,7 +81,7 @@ export const HomePage: React.FC = () => {
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                 <Users className="text-white" size={20} />
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2 text-sm sm:text-base">
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100 mb-2 text-sm sm:text-base">
                 Find Developers
               </h3>
               <p className="text-xs sm:text-sm text-gray-600">
@@ -95,7 +95,7 @@ export const HomePage: React.FC = () => {
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                 <TrendingUp className="text-white" size={20} />
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2 text-sm sm:text-base">
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100 mb-2 text-sm sm:text-base">
                 Explore Repos
               </h3>
               <p className="text-xs sm:text-sm text-gray-600">
@@ -109,7 +109,7 @@ export const HomePage: React.FC = () => {
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                 <Sparkles className="text-white" size={20} />
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2 text-sm sm:text-base">
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100 mb-2 text-sm sm:text-base">
                 Discover
               </h3>
               <p className="text-xs sm:text-sm text-gray-600">
@@ -154,12 +154,12 @@ export const HomePage: React.FC = () => {
           className="space-y-4 sm:space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100">
               Found {users.length} developer{users.length !== 1 ? "s" : ""} for
               "{query}"
             </h2>
 
-            <div className="text-xs sm:text-sm text-gray-500 bg-gray-100 px-2 py-1 sm:px-3 sm:py-1 rounded-full self-start sm:self-auto">
+            <div className="text-xs sm:text-sm text-gray-500 bg-gray-100 dark:text-gray-400 dark:bg-gray-800 px-2 py-1 sm:px-3 sm:py-1 rounded-full self-start sm:self-auto">
               {users.length} of 5 results
             </div>
           </div>
@@ -171,6 +171,34 @@ export const HomePage: React.FC = () => {
               </div>
             ))}
           </div>
+        </motion.div>
+      )}
+
+      {/* Empty State */}
+      {!isLoading && query && users.length === 0 && !error && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-center py-16"
+        >
+          <Card className="glass-card max-w-md mx-auto">
+            <CardBody className="text-center p-8">
+              <div className="text-6xl mb-4">🔍</div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">
+                No developers found
+              </h3>
+              <p className="text-gray-600 mb-4">
+                We couldn't find any users matching "{query}". Try searching
+                with:
+              </p>
+              <div className="space-y-2 text-sm text-gray-500">
+                <div>• A different username or keyword</div>
+                <div>• Partial names (e.g., "octo" for "octocat")</div>
+                <div>• Popular developer names</div>
+              </div>
+            </CardBody>
+          </Card>
         </motion.div>
       )}
     </div>

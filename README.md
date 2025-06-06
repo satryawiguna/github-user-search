@@ -16,6 +16,7 @@ A beautiful and modern web app to search for GitHub users and explore their repo
 - [Vite](https://vitejs.dev/) (build tool)
 - [Hero UI](https://heroui.dev/) (UI components)
 - [Zustand](https://zustand-demo.pmnd.rs/) (state management)
+- [TanStack Query](https://tanstack.com/query/latest)
 - [Framer Motion](https://www.framer.com/motion/) (animations)
 - [Lucide Icons](https://lucide.dev/) (icons)
 - [Tailwind CSS](https://tailwindcss.com/) (utility-first CSS)

@@ -1,54 +1,67 @@
-# React + TypeScript + Vite
+# GitHub User Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful and modern web app to search for GitHub users and explore their repositories. Built with React, TypeScript, Vite, Hero UI, Zustand, and Framer Motion.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 **Search GitHub Users:** Find users by username and view their profiles.
+- 📁 **Explore Repositories:** View user repositories, see details, and open them on GitHub.
+- 🌗 **Dark Mode:** Toggle between light and dark themes.
+- ⚡ **Fast & Modern UI:** Built with Hero UI, Framer Motion, and Tailwind CSS for a smooth experience.
+- 🧩 **TypeScript & Vite:** Type-safe, fast development with hot module replacement.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) (build tool)
+- [Hero UI](https://heroui.dev/) (UI components)
+- [Zustand](https://zustand-demo.pmnd.rs/) (state management)
+- [Framer Motion](https://www.framer.com/motion/) (animations)
+- [Lucide Icons](https://lucide.dev/) (icons)
+- [Tailwind CSS](https://tailwindcss.com/) (utility-first CSS)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-username/github-user-search.git
+   cd github-user-search
+   ```
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+3. **Set up environment variables:**
+   - Copy `.env.example` to `.env` (if provided) or create a `.env` file:
+     ```sh
+     echo 'VITE_GITHUB_API_BASE="https://api.github.com"' > .env
+     ```
+4. **Run the development server:**
+   ```sh
+   npm run dev
+   ```
+5. **Open in your browser:**
+   Visit [http://localhost:5173](http://localhost:5173)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- `src/components/` – UI components (UserCard, RepositoryCard, Layout, etc.)
+- `src/pages/` – Page components (HomePage, RepositoryDetailPage)
+- `src/services/` – API service for GitHub
+- `src/stores/` – Zustand stores for state management
+- `src/utils/` – Utility functions
+- `src/types/` – TypeScript types
+
+## Customization
+
+- Update the UI or add new features as needed.
+- The project is easy to extend with more GitHub API endpoints.
+
+## Credits
+
+- Built by Satrya Wiguna
+- Powered by [GitHub REST API](https://docs.github.com/en/rest)
+
+## License
+
+[MIT](LICENSE)

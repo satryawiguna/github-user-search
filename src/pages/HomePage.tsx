@@ -3,7 +3,8 @@ import { useUsers } from "../hooks";
 import { motion } from "framer-motion";
 import { Search, Sparkles, TrendingUp, Users } from "lucide-react";
 import { Card, CardBody } from "@heroui/react";
-import { SearchInput } from "../components/SearchInput";
+import { LoadingSpinner, SearchInput, UserCard } from "../components";
+import { ErrorMessage } from "../components/ErrorMessage";
 
 export const HomePage: React.FC = () => {
   const { query, users, isLoading, error, setQuery } = useUsers();
@@ -116,6 +117,60 @@ export const HomePage: React.FC = () => {
               </p>
             </CardBody>
           </Card>
+        </motion.div>
+      )}
+
+      {/* Error State */}
+      {error && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="mb-6"
+        >
+          <ErrorMessage message={error} onRetry={() => setQuery(query)} />
+        </motion.div>
+      )}
+
+      {/* Loading State */}
+      {isLoading && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex justify-center py-12"
+        >
+          <LoadingSpinner
+            label="Searching for amazing developers..."
+            className="mt-8"
+          />
+        </motion.div>
+      )}
+
+      {/* Results Section */}
+      {!isLoading && users.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="space-y-4 sm:space-y-6"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
+              Found {users.length} developer{users.length !== 1 ? "s" : ""} for
+              "{query}"
+            </h2>
+
+            <div className="text-xs sm:text-sm text-gray-500 bg-gray-100 px-2 py-1 sm:px-3 sm:py-1 rounded-full self-start sm:self-auto">
+              {users.length} of 5 results
+            </div>
+          </div>
+
+          <div className="space-y-4 sm:space-y-6">
+            {users.map((user) => (
+              <div key={user.id} className="will-change-transform">
+                <UserCard user={user} />
+              </div>
+            ))}
+          </div>
         </motion.div>
       )}
     </div>

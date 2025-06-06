@@ -10,6 +10,15 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen relative">
+      {/* Background with subtle pattern */}
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
+      </div>
       {/* Modern Navbar with Hero UI */}
       <motion.div
         initial={{ y: -100, opacity: 0 }}
@@ -46,7 +55,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         </Navbar>
       </motion.div>
 
-      {/* Main content with enhanced spacing and max width */}
+      {/* Main content with enhßanced spacing and max width */}
       <main className="relative z-10 container mx-auto px-3 py-6 sm:px-6 sm:py-12 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -3,7 +3,7 @@ import type {
   GitHubRepository,
   GitHubSearchUsersResponse,
 } from "../types";
-import { apiRequest } from "../utils/apiRequest";
+import { apiRequest } from "../utils";
 
 export class GitHubApiError extends Error {
   public status?: number;

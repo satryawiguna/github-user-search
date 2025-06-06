@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { GitHubUser } from "../types/github";
 
-interface UserSearchState {
+interface UserStoreState {
   query: string;
   users: GitHubUser[];
   isLoading: boolean;
@@ -13,7 +13,7 @@ interface UserSearchState {
   clear: () => void;
 }
 
-export const useUserSearchStore = create<UserSearchState>((set) => ({
+export const useUserStore = create<UserStoreState>((set) => ({
   query: "",
   users: [],
   isLoading: false,

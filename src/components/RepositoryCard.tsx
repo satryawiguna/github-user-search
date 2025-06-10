@@ -28,7 +28,7 @@ export const RepositoryCard: React.FC<RepositoryCardProps> = ({
                     href={repository.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-bold text-base sm:text-lg text-gray-800 text-gray-100 hover:text-blue-600 truncate transition-colors duration-200"
+                    className="font-bold text-base sm:text-lg text-gray-800 dark:text-gray-100 hover:text-blue-600 truncate transition-colors duration-200"
                     data-testid={`repo-link-${repository.name}`}
                   >
                     {repository.name}

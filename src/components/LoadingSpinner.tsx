@@ -42,7 +42,7 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
       </motion.div>
       {label && (
         <motion.p
-          className="mt-4 text-sm text-gray-600 font-medium"
+          className="mt-4 text-sm text-gray-600 dark:text-gray-100 font-medium"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}

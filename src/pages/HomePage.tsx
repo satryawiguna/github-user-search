@@ -140,7 +140,7 @@ export const HomePage: React.FC = () => {
         >
           <LoadingSpinner
             label="Searching for amazing developers..."
-            className="mt-8"
+            className="mt-8 dark:text-gray-100"
           />
         </motion.div>
       )}
